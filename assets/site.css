@@ -267,6 +267,22 @@ p { margin: 0 0 1em; }
   .mobile-menu { display: block; }
 }
 
+/* Phone — keep header light: only logo + burger */
+@media (max-width: 720px) {
+  .nav { gap: 16px; padding: 14px 0; }
+  .nav-cta .btn--primary { display: none; }
+  .nav-cta { gap: 0; }
+  .nav-logo { font-size: 17px; }
+  .nav-logo small { font-size: 9.5px; letter-spacing: 0.14em; }
+  .nav-logo .mark { width: 30px; height: 30px; font-size: 14px; }
+  .nav-burger { padding: 10px; margin-right: -10px; }
+  .nav-burger span { width: 24px; }
+}
+@media (max-width: 380px) {
+  .nav-logo .stack > span:first-child { font-size: 16px; }
+  .nav-logo small { display: none; }
+}
+
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); color: var(--cream); padding: 80px 0 32px; }
 .site-footer .top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 60px; border-bottom: 1px solid var(--line-dark); }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Maus – Mus musculus, dezent illustriert">
+  <defs>
+    <linearGradient id="mbg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBF8F1"/>
+      <stop offset="1" stop-color="#E5DCC2"/>
+    </linearGradient>
+    <linearGradient id="mfur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8A7355"/>
+      <stop offset="1" stop-color="#5A4634"/>
+    </linearGradient>
+    <linearGradient id="mbelly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D8B68B"/>
+      <stop offset="1" stop-color="#B8956C"/>
+    </linearGradient>
+    <filter id="mgrain2"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="23"/><feColorMatrix type="matrix" values="0 0 0 0 0.4  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.06 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  </defs>
+
+  <rect width="640" height="800" fill="url(#mbg2)"/>
+
+  <!-- Hint of wooden floor planks -->
+  <g opacity="0.35">
+    <rect x="0" y="600" width="640" height="200" fill="#C4B89B"/>
+    <line x1="0" y1="640" x2="640" y2="640" stroke="#9A8A6B" stroke-width="0.6"/>
+    <line x1="0" y1="690" x2="640" y2="690" stroke="#9A8A6B" stroke-width="0.6"/>
+    <line x1="0" y1="740" x2="640" y2="740" stroke="#9A8A6B" stroke-width="0.6"/>
+    <line x1="160" y1="600" x2="160" y2="800" stroke="#9A8A6B" stroke-width="0.4"/>
+    <line x1="380" y1="600" x2="380" y2="800" stroke="#9A8A6B" stroke-width="0.4"/>
+  </g>
+
+  <!-- Latin label -->
+  <text x="42" y="200" fill="#0F2A1D" opacity="0.08" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="110">Mus</text>
+  <text x="46" y="260" fill="#0F2A1D" opacity="0.08" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="56">musculus</text>
+
+  <!-- Crumb / grain on the floor -->
+  <ellipse cx="180" cy="640" rx="6" ry="3" fill="#7A6448" opacity="0.6"/>
+  <ellipse cx="200" cy="645" rx="4" ry="2" fill="#7A6448" opacity="0.5"/>
+
+  <!-- Soft shadow -->
+  <ellipse cx="370" cy="630" rx="120" ry="6" fill="#000" opacity="0.18"/>
+
+  <!-- Mouse body (compact, in profile) -->
+  <g transform="translate(0 0)">
+    <!-- Tail -->
+    <path d="M280 612 Q200 620 170 580 Q150 550 200 530" fill="none" stroke="#9C7C5A" stroke-width="3.5" stroke-linecap="round"/>
+
+    <!-- Hind leg -->
+    <ellipse cx="290" cy="618" rx="16" ry="9" fill="#5A4634"/>
+
+    <!-- Body (small, rounded) -->
+    <path d="M260 600 Q250 560 290 540 Q360 510 430 525 Q470 540 470 580 Q470 615 430 620 Q340 626 290 622 Q270 618 260 600 Z" fill="url(#mfur)"/>
+    <!-- Belly -->
+    <path d="M290 612 Q360 626 430 615 Q420 622 360 622 Q300 622 290 612 Z" fill="url(#mbelly)" opacity="0.85"/>
+
+    <!-- Front legs -->
+    <ellipse cx="395" cy="624" rx="6" ry="6" fill="#5A4634"/>
+    <ellipse cx="420" cy="622" rx="6" ry="6" fill="#5A4634"/>
+
+    <!-- Head with pointed snout -->
+    <path d="M430 522 Q480 510 510 528 Q524 540 522 558 Q514 575 480 580 Q450 580 435 568 Q428 552 430 538 Z" fill="url(#mfur)"/>
+    <!-- Snout -->
+    <path d="M510 535 Q535 540 545 552 Q540 562 522 564 Q510 558 510 548 Z" fill="url(#mfur)"/>
+    <!-- Pink nose -->
+    <ellipse cx="544" cy="554" rx="3" ry="2.4" fill="#A0533A"/>
+
+    <!-- Big round ears -->
+    <ellipse cx="455" cy="510" rx="20" ry="22" fill="url(#mfur)"/>
+    <ellipse cx="455" cy="514" rx="13" ry="15" fill="#D8B68B" opacity="0.7"/>
+
+    <!-- Eye (bead-like) -->
+    <circle cx="478" cy="540" r="4" fill="#0F2A1D"/>
+    <circle cx="479" cy="539" r="1.2" fill="#F5F1E8"/>
+
+    <!-- Whiskers -->
+    <line x1="520" y1="556" x2="556" y2="546" stroke="#F5F1E8" stroke-width="0.6" opacity="0.85"/>
+    <line x1="520" y1="558" x2="558" y2="556" stroke="#F5F1E8" stroke-width="0.6" opacity="0.85"/>
+    <line x1="520" y1="562" x2="558" y2="568" stroke="#F5F1E8" stroke-width="0.6" opacity="0.85"/>
+    <line x1="520" y1="554" x2="544" y2="540" stroke="#F5F1E8" stroke-width="0.6" opacity="0.7"/>
+
+    <!-- Subtle whisker shadow -->
+    <line x1="510" y1="560" x2="540" y2="572" stroke="#5A4634" stroke-width="0.4" opacity="0.6"/>
+  </g>
+
+  <!-- Editorial monogram -->
+  <g transform="translate(560 56)">
+    <circle r="22" fill="none" stroke="#0F2A1D" stroke-width="0.8" opacity="0.5"/>
+    <text text-anchor="middle" dominant-baseline="central" font-family="Newsreader, serif" font-style="italic" font-size="20" fill="#C58A2C">02</text>
+  </g>
+
+  <!-- Frame -->
+  <rect x="0.5" y="0.5" width="639" height="799" fill="none" stroke="#0F2A1D" stroke-width="0.6" opacity="0.18"/>
+  <rect width="640" height="800" filter="url(#mgrain2)" opacity="0.55"/>
+</svg>

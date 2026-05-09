@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ameisen – Formicidae, dezent illustriert">
+  <defs>
+    <linearGradient id="abg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBF8F1"/>
+      <stop offset="1" stop-color="#E5DCC2"/>
+    </linearGradient>
+    <linearGradient id="abody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A2E1E"/>
+      <stop offset="1" stop-color="#1A1006"/>
+    </linearGradient>
+    <filter id="agrain2"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="29"/><feColorMatrix type="matrix" values="0 0 0 0 0.4  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.05 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  </defs>
+
+  <rect width="640" height="800" fill="url(#abg2)"/>
+
+  <!-- Faint trail line — the ant's path -->
+  <path d="M40 720 Q160 700 240 660 Q320 620 380 540 Q440 460 500 380 Q560 300 600 220" stroke="#0F2A1D" stroke-width="0.6" stroke-dasharray="3 6" fill="none" opacity="0.25"/>
+
+  <!-- Latin label -->
+  <text x="280" y="120" fill="#0F2A1D" opacity="0.07" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="120">Formicidae</text>
+
+  <!-- Tiny ants following the trail -->
+  <g opacity="0.85">
+    <g transform="translate(110 712) rotate(-12) scale(0.5)">
+      <ellipse cx="0" cy="0" rx="14" ry="10" fill="url(#abody)"/>
+      <ellipse cx="-22" cy="-2" rx="9" ry="8" fill="url(#abody)"/>
+      <circle cx="-38" cy="-4" r="6" fill="url(#abody)"/>
+      <line x1="-44" y1="-8" x2="-50" y2="-16" stroke="#1A1006" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="-44" y1="0" x2="-52" y2="-2" stroke="#1A1006" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(180 686) rotate(-18) scale(0.55)">
+      <ellipse cx="0" cy="0" rx="14" ry="10" fill="url(#abody)"/>
+      <ellipse cx="-22" cy="-2" rx="9" ry="8" fill="url(#abody)"/>
+      <circle cx="-38" cy="-4" r="6" fill="url(#abody)"/>
+      <line x1="-44" y1="-8" x2="-50" y2="-16" stroke="#1A1006" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(260 640) rotate(-22) scale(0.6)">
+      <ellipse cx="0" cy="0" rx="14" ry="10" fill="url(#abody)"/>
+      <ellipse cx="-22" cy="-2" rx="9" ry="8" fill="url(#abody)"/>
+      <circle cx="-38" cy="-4" r="6" fill="url(#abody)"/>
+    </g>
+    <g transform="translate(540 320) rotate(-50) scale(0.5)">
+      <ellipse cx="0" cy="0" rx="14" ry="10" fill="url(#abody)"/>
+      <ellipse cx="-22" cy="-2" rx="9" ry="8" fill="url(#abody)"/>
+      <circle cx="-38" cy="-4" r="6" fill="url(#abody)"/>
+    </g>
+  </g>
+
+  <!-- Hero ant — large, detailed, in profile, three segments -->
+  <g transform="translate(320 440) rotate(-8) scale(2.6)">
+    <!-- shadow -->
+    <ellipse cx="0" cy="46" rx="80" ry="6" fill="#000" opacity="0.18"/>
+
+    <!-- gaster (rear) -->
+    <ellipse cx="48" cy="0" rx="34" ry="26" fill="url(#abody)"/>
+    <!-- gaster highlight -->
+    <ellipse cx="40" cy="-8" rx="18" ry="10" fill="#5A4634" opacity="0.5"/>
+    <!-- segment lines -->
+    <path d="M40 -22 Q44 0 40 22" stroke="#0F0500" stroke-width="0.8" fill="none" opacity="0.7"/>
+    <path d="M52 -24 Q56 0 52 24" stroke="#0F0500" stroke-width="0.8" fill="none" opacity="0.7"/>
+    <path d="M64 -22 Q68 0 64 22" stroke="#0F0500" stroke-width="0.8" fill="none" opacity="0.7"/>
+
+    <!-- petiole (waist) -->
+    <ellipse cx="14" cy="0" rx="6" ry="4" fill="url(#abody)"/>
+
+    <!-- thorax -->
+    <ellipse cx="-14" cy="-2" rx="20" ry="16" fill="url(#abody)"/>
+    <ellipse cx="-18" cy="-8" rx="10" ry="6" fill="#5A4634" opacity="0.5"/>
+
+    <!-- head -->
+    <circle cx="-44" cy="-4" r="16" fill="url(#abody)"/>
+    <!-- mandibles -->
+    <path d="M-58 -6 L-66 -10 L-62 -2 Z" fill="#1A1006"/>
+    <path d="M-58 0 L-66 4 L-60 4 Z" fill="#1A1006"/>
+    <!-- eye -->
+    <circle cx="-48" cy="-10" r="2.5" fill="#F5F1E8"/>
+    <circle cx="-48" cy="-10" r="1.4" fill="#1A1006"/>
+
+    <!-- antennae (bent, gold-tipped) -->
+    <path d="M-52 -16 Q-58 -28 -50 -36 Q-44 -42 -36 -40" stroke="#1A1006" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <circle cx="-36" cy="-40" r="1.6" fill="#C58A2C"/>
+    <path d="M-46 -18 Q-44 -32 -36 -36 Q-28 -38 -22 -34" stroke="#1A1006" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <circle cx="-22" cy="-34" r="1.6" fill="#C58A2C"/>
+
+    <!-- six legs -->
+    <path d="M-22 4 Q-36 18 -42 30" stroke="#1A1006" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M-12 8 Q-14 24 -20 38" stroke="#1A1006" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M-2 8 Q4 22 6 36" stroke="#1A1006" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M-22 -8 Q-32 -20 -38 -28" stroke="#1A1006" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.85"/>
+    <path d="M-12 -10 Q-14 -22 -16 -32" stroke="#1A1006" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.85"/>
+    <path d="M-2 -10 Q4 -22 8 -30" stroke="#1A1006" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <!-- Editorial monogram -->
+  <g transform="translate(560 56)">
+    <circle r="22" fill="none" stroke="#0F2A1D" stroke-width="0.8" opacity="0.5"/>
+    <text text-anchor="middle" dominant-baseline="central" font-family="Newsreader, serif" font-style="italic" font-size="20" fill="#C58A2C">03</text>
+  </g>
+
+  <!-- Frame -->
+  <rect x="0.5" y="0.5" width="639" height="799" fill="none" stroke="#0F2A1D" stroke-width="0.6" opacity="0.18"/>
+  <rect width="640" height="800" filter="url(#agrain2)" opacity="0.5"/>
+</svg>

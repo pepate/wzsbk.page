@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ratte – Rattus norvegicus, dezent illustriert">
+  <defs>
+    <linearGradient id="rbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5F1E8"/>
+      <stop offset="1" stop-color="#D9CFB4"/>
+    </linearGradient>
+    <linearGradient id="rbody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3F5E48"/>
+      <stop offset="1" stop-color="#0F2A1D"/>
+    </linearGradient>
+    <linearGradient id="rfur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1F4733"/>
+      <stop offset="1" stop-color="#0F2A1D"/>
+    </linearGradient>
+    <filter id="rgrain"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="21"/><feColorMatrix type="matrix" values="0 0 0 0 0.4  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.06 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  </defs>
+
+  <rect width="640" height="800" fill="url(#rbg)"/>
+
+  <!-- Subtle ground line / shelf edge -->
+  <line x1="0" y1="560" x2="640" y2="560" stroke="#B7AB8E" stroke-width="0.8" opacity="0.7"/>
+  <rect x="0" y="560" width="640" height="240" fill="#E5DCC2" opacity="0.4"/>
+
+  <!-- Latin label faintly etched as background type -->
+  <text x="36" y="730" fill="#0F2A1D" opacity="0.07" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="120" font-weight="400">Rattus</text>
+  <text x="56" y="780" fill="#0F2A1D" opacity="0.07" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="56" font-weight="400">norvegicus</text>
+
+  <!-- Soft shadow under rat -->
+  <ellipse cx="340" cy="558" rx="200" ry="9" fill="#000" opacity="0.18"/>
+
+  <!-- Rat body (in profile, facing right) -->
+  <g>
+    <!-- Tail (curving behind) -->
+    <path d="M170 540 Q90 540 70 470 Q60 420 110 400" fill="none" stroke="#7A6448" stroke-width="6" stroke-linecap="round"/>
+    <path d="M170 540 Q90 540 70 470 Q60 420 110 400" fill="none" stroke="#5A4634" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Hind leg / haunch -->
+    <path d="M210 510 Q200 540 220 558 L260 558 Q260 540 260 522 Z" fill="url(#rfur)"/>
+
+    <!-- Body silhouette -->
+    <path d="M170 530 Q140 510 170 470 Q200 430 280 420 Q380 410 460 440 Q510 460 510 510 Q510 545 460 555 L260 558 Q200 558 170 530 Z" fill="url(#rbody)"/>
+
+    <!-- Belly highlight -->
+    <path d="M260 555 Q330 562 410 555 Q430 552 440 548 Q400 558 320 558 Q280 558 260 555 Z" fill="#5A7560" opacity="0.6"/>
+
+    <!-- Front leg -->
+    <path d="M400 540 L398 558 L412 558 L414 540 Z" fill="#0F2A1D"/>
+    <path d="M430 540 L428 558 L442 558 L444 540 Z" fill="#0F2A1D"/>
+
+    <!-- Head -->
+    <path d="M450 446 Q510 432 540 460 Q560 480 555 500 Q548 520 520 524 Q470 528 460 510 Q450 490 450 470 Z" fill="url(#rbody)"/>
+
+    <!-- Snout pointed -->
+    <path d="M540 478 Q570 482 580 492 Q572 502 552 504 Q544 498 540 488 Z" fill="url(#rbody)"/>
+    <!-- Nose -->
+    <ellipse cx="578" cy="494" rx="3" ry="2.5" fill="#1A1006"/>
+
+    <!-- Whiskers -->
+    <line x1="555" y1="498" x2="585" y2="490" stroke="#F5F1E8" stroke-width="0.7" opacity="0.7"/>
+    <line x1="555" y1="500" x2="588" y2="498" stroke="#F5F1E8" stroke-width="0.7" opacity="0.7"/>
+    <line x1="555" y1="503" x2="586" y2="506" stroke="#F5F1E8" stroke-width="0.7" opacity="0.7"/>
+
+    <!-- Eye -->
+    <circle cx="498" cy="476" r="3.5" fill="#1A1006"/>
+    <circle cx="499" cy="475" r="1" fill="#F5F1E8"/>
+
+    <!-- Ear (rounded) -->
+    <ellipse cx="478" cy="446" rx="14" ry="14" fill="url(#rfur)"/>
+    <ellipse cx="478" cy="448" rx="9" ry="9" fill="#5A7560" opacity="0.7"/>
+
+    <!-- Subtle fur strokes -->
+    <path d="M250 460 Q260 458 270 462" stroke="#0F2A1D" stroke-width="0.8" opacity="0.5" fill="none"/>
+    <path d="M310 450 Q320 448 330 452" stroke="#0F2A1D" stroke-width="0.8" opacity="0.5" fill="none"/>
+    <path d="M370 444 Q380 442 390 446" stroke="#0F2A1D" stroke-width="0.8" opacity="0.5" fill="none"/>
+    <path d="M420 442 Q430 440 440 444" stroke="#0F2A1D" stroke-width="0.8" opacity="0.5" fill="none"/>
+  </g>
+
+  <!-- Editorial monogram corner mark -->
+  <g transform="translate(560 56)">
+    <circle r="22" fill="none" stroke="#0F2A1D" stroke-width="0.8" opacity="0.5"/>
+    <text text-anchor="middle" dominant-baseline="central" font-family="Newsreader, serif" font-style="italic" font-size="20" fill="#C58A2C">01</text>
+  </g>
+
+  <!-- Frame -->
+  <rect x="0.5" y="0.5" width="639" height="799" fill="none" stroke="#0F2A1D" stroke-width="0.6" opacity="0.18"/>
+  <rect width="640" height="800" filter="url(#rgrain)" opacity="0.55"/>
+</svg>
