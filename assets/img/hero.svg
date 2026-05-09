@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Techniker im Einsatz – editorial illustration">
+  <defs>
+    <!-- Background graded warm light -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5F1E8"/>
+      <stop offset="0.55" stop-color="#EAE3D0"/>
+      <stop offset="1" stop-color="#D9CFB4"/>
+    </linearGradient>
+    <!-- Soft window light -->
+    <radialGradient id="windowLight" cx="0.78" cy="0.28" r="0.6">
+      <stop offset="0" stop-color="#FBF3D9" stop-opacity="0.9"/>
+      <stop offset="0.7" stop-color="#FBF3D9" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#FBF3D9" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Floor gradient -->
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3F5E48"/>
+      <stop offset="1" stop-color="#0F2A1D"/>
+    </linearGradient>
+    <!-- Figure body gradient (subtle volume) -->
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0F2A1D"/>
+      <stop offset="1" stop-color="#1F4733"/>
+    </linearGradient>
+    <linearGradient id="bodyHi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1F4733"/>
+      <stop offset="1" stop-color="#2F5A41"/>
+    </linearGradient>
+    <!-- Subtle paper texture using turbulence -->
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.55  0 0 0 0 0.45  0 0 0 0.07 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="800" fill="url(#bg)"/>
+
+  <!-- Wall / architectural backdrop: tall window grid -->
+  <g opacity="0.55">
+    <!-- Window frame -->
+    <rect x="80"  y="60" width="480" height="430" fill="#E5DCC2" stroke="#B7AB8E" stroke-width="1.5"/>
+    <!-- Mullions -->
+    <line x1="320" y1="60" x2="320" y2="490" stroke="#B7AB8E" stroke-width="1.2"/>
+    <line x1="80"  y1="275" x2="560" y2="275" stroke="#B7AB8E" stroke-width="1.2"/>
+    <!-- Pane subdivisions -->
+    <line x1="200" y1="60" x2="200" y2="490" stroke="#C4B89B" stroke-width="0.6"/>
+    <line x1="440" y1="60" x2="440" y2="490" stroke="#C4B89B" stroke-width="0.6"/>
+    <line x1="80"  y1="167" x2="560" y2="167" stroke="#C4B89B" stroke-width="0.6"/>
+    <line x1="80"  y1="383" x2="560" y2="383" stroke="#C4B89B" stroke-width="0.6"/>
+
+    <!-- Soft light bleed behind window -->
+    <rect x="80" y="60" width="480" height="430" fill="url(#windowLight)"/>
+  </g>
+
+  <!-- Hint of distant trees / outside -->
+  <g opacity="0.18">
+    <path d="M120 280 Q150 220 180 280 Q210 220 240 280 Q270 240 300 280 L300 360 L120 360 Z" fill="#3F5E48"/>
+    <path d="M340 280 Q370 230 400 280 Q430 240 460 280 Q490 220 520 280 L520 360 L340 360 Z" fill="#3F5E48"/>
+  </g>
+
+  <!-- Floor -->
+  <rect x="0" y="490" width="640" height="310" fill="url(#floor)"/>
+
+  <!-- Floor seam highlight -->
+  <line x1="0" y1="490" x2="640" y2="490" stroke="#1F4733" stroke-width="1"/>
+
+  <!-- Long shadow cast by figure -->
+  <ellipse cx="320" cy="780" rx="190" ry="14" fill="#000" opacity="0.35"/>
+
+  <!-- Equipment case on the floor (left of figure) -->
+  <g>
+    <rect x="80" y="600" width="120" height="70" rx="4" fill="#1A1006"/>
+    <rect x="80" y="600" width="120" height="14" rx="4" fill="#2A1810"/>
+    <rect x="100" y="615" width="80" height="2" fill="#C58A2C" opacity="0.8"/>
+    <rect x="130" y="592" width="20" height="10" rx="2" fill="#1A1006"/>
+    <line x1="80" y1="640" x2="200" y2="640" stroke="#0A0500" stroke-width="0.6"/>
+  </g>
+
+  <!-- Backpack sprayer on the right -->
+  <g opacity="0.95">
+    <!-- tank -->
+    <ellipse cx="540" cy="600" rx="34" ry="46" fill="#C58A2C"/>
+    <ellipse cx="540" cy="600" rx="34" ry="46" fill="url(#body)" opacity="0.18"/>
+    <!-- cap -->
+    <rect x="528" y="548" width="24" height="14" rx="3" fill="#1A1006"/>
+    <!-- hose -->
+    <path d="M510 620 Q470 660 460 700" fill="none" stroke="#1A1006" stroke-width="3" stroke-linecap="round"/>
+    <!-- nozzle wand -->
+    <line x1="460" y1="700" x2="438" y2="740" stroke="#1F4733" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Figure: technician (kneeling, examining floor edge) -->
+  <g>
+    <!-- back leg / shoe -->
+    <path d="M260 720 Q255 745 250 760 L300 760 L310 720 Z" fill="url(#body)"/>
+    <!-- front leg (kneeling) -->
+    <path d="M310 600 Q330 620 340 660 Q345 700 360 730 L420 730 Q410 700 400 660 Q400 620 380 600 Z" fill="url(#body)"/>
+    <!-- knee patch -->
+    <ellipse cx="368" cy="685" rx="14" ry="9" fill="#0F2A1D" opacity="0.6"/>
+    <!-- torso -->
+    <path d="M270 460 Q300 450 340 458 Q380 466 400 480 L408 600 Q360 612 310 600 L268 590 Z" fill="url(#bodyHi)"/>
+    <!-- jacket seam -->
+    <line x1="338" y1="466" x2="356" y2="600" stroke="#0F2A1D" stroke-width="1.4" opacity="0.6"/>
+    <!-- arm reaching down -->
+    <path d="M390 478 Q430 510 440 560 Q444 590 432 612" fill="none" stroke="#1F4733" stroke-width="34" stroke-linecap="round"/>
+    <!-- glove on reaching hand -->
+    <ellipse cx="430" cy="618" rx="14" ry="11" fill="#0F2A1D"/>
+    <!-- holding a small detector / light -->
+    <rect x="424" y="612" width="18" height="6" rx="1.5" fill="#C58A2C"/>
+    <circle cx="446" cy="615" r="3" fill="#FBF3D9" opacity="0.85"/>
+    <!-- supporting arm bent -->
+    <path d="M280 478 Q258 520 268 560 Q278 588 300 596" fill="none" stroke="#1F4733" stroke-width="32" stroke-linecap="round"/>
+    <!-- glove -->
+    <ellipse cx="302" cy="600" rx="13" ry="10" fill="#0F2A1D"/>
+    <!-- collar -->
+    <path d="M310 458 Q335 452 360 458 L356 472 Q335 466 314 472 Z" fill="#0F2A1D"/>
+    <!-- neck -->
+    <rect x="324" y="430" width="22" height="22" fill="#7A6448"/>
+    <!-- head (turned slightly down, in profile) -->
+    <ellipse cx="338" cy="412" rx="22" ry="26" fill="#8A7355"/>
+    <!-- hair / cap line -->
+    <path d="M316 400 Q330 380 360 388 Q364 396 360 404 L320 410 Z" fill="#0F2A1D"/>
+    <!-- ear hint -->
+    <ellipse cx="320" cy="416" rx="3" ry="5" fill="#6B563E"/>
+    <!-- shoulder patch logo dot -->
+    <circle cx="296" cy="486" r="3.5" fill="#C58A2C"/>
+  </g>
+
+  <!-- Foreground baseboard line for depth -->
+  <line x1="0" y1="730" x2="640" y2="730" stroke="#0F2A1D" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Fine grain overlay -->
+  <rect width="640" height="800" fill="#F5F1E8" opacity="0.04"/>
+  <rect width="640" height="800" filter="url(#grain)" opacity="0.7"/>
+
+  <!-- Editorial frame margin (subtle) -->
+  <rect x="0.5" y="0.5" width="639" height="799" fill="none" stroke="#0F2A1D" stroke-width="0.6" opacity="0.18"/>
+</svg>

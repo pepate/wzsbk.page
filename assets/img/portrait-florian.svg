@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Florian Z. – Portrait">
+  <defs>
+    <linearGradient id="fbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1F4733"/>
+      <stop offset="1" stop-color="#0F2A1D"/>
+    </linearGradient>
+    <linearGradient id="fskin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9A57F"/>
+      <stop offset="1" stop-color="#9C7C5A"/>
+    </linearGradient>
+    <linearGradient id="fjacket" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F2A1D"/>
+      <stop offset="1" stop-color="#1F4733"/>
+    </linearGradient>
+    <filter id="fgrain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="matrix" values="0 0 0 0 0.4  0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0.07 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+  </defs>
+
+  <rect width="600" height="750" fill="url(#fbg)"/>
+  <!-- light vignette -->
+  <radialGradient id="fvignette" cx="0.55" cy="0.4" r="0.7">
+    <stop offset="0" stop-color="#3F5E48" stop-opacity="0.5"/>
+    <stop offset="1" stop-color="#0F2A1D" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="600" height="750" fill="url(#fvignette)"/>
+
+  <!-- shoulders / jacket -->
+  <path d="M40 750 Q40 590 140 540 Q220 510 300 510 Q380 510 460 540 Q560 590 560 750 Z" fill="url(#fjacket)"/>
+  <!-- jacket inner V -->
+  <path d="M260 540 L300 660 L340 540 Z" fill="#F5F1E8" opacity="0.85"/>
+  <path d="M280 540 L300 590 L320 540 Z" fill="#0F2A1D"/>
+
+  <!-- neck -->
+  <path d="M270 460 Q270 510 300 510 Q330 510 330 460 Z" fill="url(#fskin)"/>
+  <!-- neck shadow -->
+  <path d="M270 490 Q300 510 330 490 L330 510 L270 510 Z" fill="#000" opacity="0.18"/>
+
+  <!-- head -->
+  <ellipse cx="300" cy="370" rx="100" ry="120" fill="url(#fskin)"/>
+  <!-- side shadow on head -->
+  <path d="M340 270 Q400 360 350 480 Q330 490 320 480 Q360 380 340 270 Z" fill="#000" opacity="0.13"/>
+
+  <!-- hair (short, swept) -->
+  <path d="M210 290 Q220 240 280 230 Q360 220 390 280 Q400 320 380 340 Q360 290 320 280 Q260 280 220 320 Q210 310 210 290 Z" fill="#3A2E1E"/>
+
+  <!-- ears -->
+  <ellipse cx="206" cy="380" rx="12" ry="20" fill="url(#fskin)"/>
+  <ellipse cx="394" cy="380" rx="12" ry="20" fill="url(#fskin)"/>
+
+  <!-- eyebrows -->
+  <path d="M236 358 Q260 348 290 356" stroke="#3A2E1E" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M310 356 Q340 348 364 358" stroke="#3A2E1E" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- eyes -->
+  <ellipse cx="260" cy="380" rx="8" ry="5" fill="#0F2A1D"/>
+  <ellipse cx="340" cy="380" rx="8" ry="5" fill="#0F2A1D"/>
+  <circle cx="262" cy="378" r="1.5" fill="#F5F1E8"/>
+  <circle cx="342" cy="378" r="1.5" fill="#F5F1E8"/>
+
+  <!-- nose -->
+  <path d="M298 390 Q294 420 292 440 Q300 446 308 440 Q306 420 302 390 Z" fill="#000" opacity="0.1"/>
+
+  <!-- mouth (slight smile) -->
+  <path d="M276 450 Q300 462 324 450" stroke="#3A2E1E" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- short beard hint -->
+  <path d="M250 444 Q300 480 350 444 Q345 470 300 478 Q255 470 250 444 Z" fill="#3A2E1E" opacity="0.45"/>
+
+  <!-- collar / shirt -->
+  <path d="M236 540 L260 580 L260 540 Z" fill="#F5F1E8"/>
+  <path d="M364 540 L340 580 L340 540 Z" fill="#F5F1E8"/>
+
+  <!-- subtle gold pin on lapel -->
+  <circle cx="220" cy="610" r="4" fill="#C58A2C"/>
+
+  <!-- frame -->
+  <rect x="0.5" y="0.5" width="599" height="749" fill="none" stroke="#F5F1E8" stroke-width="0.6" opacity="0.12"/>
+  <rect width="600" height="750" filter="url(#fgrain)" opacity="0.6"/>
+</svg>

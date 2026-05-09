@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title id="pageTitle">Schädling — WZ Schädlingsbekämpfung Karlsruhe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css" />
+<style>
+  .pest-page .page-hero .crumbs a { color: var(--muted); }
+  .pest-page .pest-hero {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px;
+    align-items: end;
+  }
+  @media (max-width: 900px) { .pest-page .pest-hero { grid-template-columns: 1fr; gap: 40px; } }
+  .pest-page .big-icon {
+    width: 84px; height: 84px;
+    border: 1px solid var(--line); background: var(--paper);
+    display: grid; place-items: center;
+    border-radius: 50%; margin-bottom: 32px;
+  }
+  .pest-page .big-icon svg { width: 44px; height: 44px; }
+  .pest-page .pest-aside .ph { aspect-ratio: 4/5; }
+
+  .pest-page .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  @media (max-width: 900px) { .pest-page .grid-2 { grid-template-columns: 1fr; gap: 40px; } }
+
+  .pest-page .signs-list, .pest-page .risk-list { list-style: none; padding: 0; margin: 0; }
+  .pest-page .signs-list li {
+    display: grid; grid-template-columns: 28px 1fr; gap: 16px;
+    padding: 18px 0; border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .pest-page .signs-list li::before {
+    content: ""; display: block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); margin-top: 8px;
+  }
+
+  .pest-page .risk-list li {
+    display: grid; grid-template-columns: 140px 1fr; gap: 24px;
+    padding: 24px 0; border-top: 1px solid var(--line-dark);
+  }
+  .section--ink .pest-page .risk-list li { border-top-color: var(--line-dark); }
+  .pest-page .risk-list .k { font-family: 'Newsreader', serif; font-size: 22px; font-style: italic; color: var(--gold); }
+  .pest-page .risk-list .v { font-size: 16px; color: #D8DCD3; }
+
+  .pest-page .next-pests { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .pest-page .next-pests .links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .pest-page .next-pests a { padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; transition: all var(--t); }
+  .pest-page .next-pests a:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+</style>
+</head>
+<body class="pest-page">
+<script src="../assets/site.js"></script>
+<script src="../assets/pest-data.js"></script>
+<script>WZ_mount({ active: '', depth: 1 });</script>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs">
+      <a href="../index.html">Start</a>
+      <span class="sep">/</span>
+      <span>Schädlinge</span>
+      <span class="sep">/</span>
+      <span id="cb-name"></span>
+    </div>
+    <div class="pest-hero">
+      <div>
+        <div class="big-icon" id="bigIcon"></div>
+        <h1 id="hName"><em id="hNameEm"></em></h1>
+        <p class="lead" style="margin-top:32px" id="hIntro"></p>
+        <div class="hero-cta" style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn--primary" href="../kontakt.html">Anfrage stellen <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="tel:+4915563395364">Notdienst anrufen</a>
+        </div>
+      </div>
+      <aside class="pest-aside">
+        <div class="ph"><span class="label" id="phLabel"></span></div>
+      </aside>
+    </div>
+
+    <div class="meta">
+      <div><div class="k">Lateinisch</div><div class="v" id="m-latin"></div></div>
+      <div><div class="k">Erkennung</div><div class="v" id="m-sub"></div></div>
+      <div><div class="k">Behandlungs&shy;dauer</div><div class="v" id="m-timeline"></div></div>
+      <div><div class="k">Reaktionszeit</div><div class="v">≤ 4 Std.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Erkennen -->
+<section class="section">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>Erkennen</div>
+        <h2 class="h-1" style="margin-top:14px;max-width:14ch">Wie Sie einen <em>Befall</em> erkennen.</h2>
+        <p class="muted" style="max-width:38ch;margin-top:24px">
+          Ein paar Hinweise reichen meist aus, um einzuschätzen, ob ein professioneller Einsatz nötig ist.
+          Wenn Sie unsicher sind: Wir prüfen kostenfrei vor Ort.
+        </p>
+      </div>
+      <ul class="signs-list reveal" id="signsList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Risiken -->
+<section class="section section--ink">
+  <div class="wrap">
+    <div class="grid-2 reveal">
+      <div>
+        <div class="eyebrow" style="color:var(--sage)"><span class="dot"></span>Risiken</div>
+        <h2 class="h-1" style="margin-top:14px;color:var(--cream);max-width:14ch">Warum schnelles <em>Handeln</em> wichtig ist.</h2>
+      </div>
+      <ul class="risk-list" id="riskList" style="margin-top:0;border-top:0"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Methode -->
+<section class="section">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>Methode</div>
+        <h2 class="h-1" style="margin-top:14px;max-width:14ch">Unser <em>Vorgehen.</em></h2>
+        <p class="muted" style="max-width:36ch;margin-top:24px">
+          Wir folgen dem IPM-Standard — Bekämpfung, Ursache und Prävention werden gemeinsam gedacht.
+        </p>
+      </div>
+      <ol class="numlist reveal" id="methodList"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--ink section--tight">
+  <div class="wrap" style="text-align:center;padding:40px 0">
+    <div class="eyebrow" style="color:var(--sage);justify-self:center"><span class="dot"></span>Bereit?</div>
+    <h2 class="h-1" style="margin:14px auto 24px;color:var(--cream);max-width:18ch">Schildern Sie uns Ihren <em>Fall.</em></h2>
+    <p class="lead" style="color:#D8DCD3;margin:0 auto 32px;max-width:50ch">
+      Beschreiben Sie kurz, was Sie beobachtet haben — wir melden uns innerhalb weniger Stunden mit einer Einschätzung.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--gold" href="../kontakt.html">Anfrage in 60 Sek. →</a>
+      <a class="btn btn--ghost" href="tel:+4915563395364">0155 — 6339 5364</a>
+    </div>
+
+    <div class="next-pests">
+      <div class="eyebrow" style="color:var(--sage)"><span class="dot"></span>Andere Schädlinge</div>
+      <div class="links" id="otherPests"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Read pest slug from filename
+  const slug = location.pathname.split('/').pop().replace('.html','') || 'ratten';
+  const data = window.PEST_DATA[slug] || window.PEST_DATA['ratten'];
+
+  document.getElementById('pageTitle').textContent =
+    `${data.name} bekämpfen — WZ Schädlingsbekämpfung Karlsruhe`;
+  document.getElementById('cb-name').textContent = data.name;
+  document.getElementById('hNameEm').textContent = data.name;
+  document.getElementById('hIntro').textContent = data.intro;
+  document.getElementById('phLabel').textContent = `Foto · ${data.name} (dezent)`;
+  document.getElementById('bigIcon').innerHTML = window.PEST_SVG[data.icon];
+  document.getElementById('m-latin').textContent = data.latin;
+  document.getElementById('m-sub').textContent = data.sub;
+  document.getElementById('m-timeline').textContent = data.timeline;
+
+  document.getElementById('signsList').innerHTML =
+    data.signs.map(s => `<li><span></span><span>${s}</span></li>`).join('');
+
+  document.getElementById('riskList').innerHTML =
+    data.risks.map(([k,v]) => `<li><div class="k">${k}</div><div class="v">${v}</div></li>`).join('');
+
+  document.getElementById('methodList').innerHTML =
+    data.method.map(([k,v]) => `<li><div><h3 class="h-3 serif">${k}</h3><p class="muted">${v}</p></div></li>`).join('');
+
+  document.getElementById('otherPests').innerHTML =
+    Object.values(window.PEST_DATA)
+      .filter(p => p.slug !== slug)
+      .map(p => `<a href="${p.slug}.html">${p.name}</a>`).join('');
+</script>
+</body>
+</html>

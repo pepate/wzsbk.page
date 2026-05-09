@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kontakt — WZ Schädlingsbekämpfung Karlsruhe</title>
+<meta name="description" content="Kontaktieren Sie WZ Schädlingsbekämpfung in Karlsruhe — Anfrage in 60 Sekunden, Notdienst rund um die Uhr." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .kontakt-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: start; }
+  @media (max-width: 1040px) { .kontakt-grid { grid-template-columns: 1fr; gap: 56px; } }
+
+  .form-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 40px;
+  }
+  .form-card .steps { margin-bottom: 32px; }
+  .form-step { display: none; }
+  .form-step.active { display: block; animation: fadeIn 320ms cubic-bezier(.2,.7,.2,1); }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .form-step h2 { font-family: 'Newsreader', serif; font-size: 32px; font-weight: 400; line-height: 1.1; margin-bottom: 8px; letter-spacing: -0.015em; }
+  .form-step h2 em { font-style: italic; color: var(--gold); }
+  .form-step .sub { color: var(--muted); margin-bottom: 32px; font-size: 15px; }
+
+  .pest-pick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 540px) { .pest-pick { grid-template-columns: repeat(2, 1fr); } }
+  .pest-pick label {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    padding: 20px 12px;
+    border: 1px solid var(--line); background: var(--paper);
+    border-radius: var(--r-md);
+    font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: all var(--t);
+    text-align: center;
+  }
+  .pest-pick label:hover { border-color: var(--ink); }
+  .pest-pick input { position: absolute; opacity: 0; pointer-events: none; }
+  .pest-pick input:checked + label { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .pest-pick input:checked + label .pest-ico { background: var(--ink-2); color: var(--sage); border-color: var(--line-dark); }
+
+  .form-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .form-actions .btn-back { background: none; border: none; color: var(--muted); font-size: 14px; padding: 12px 0; }
+  .form-actions .btn-back:hover { color: var(--ink); }
+
+  .summary { background: var(--cream); border-radius: var(--r-sm); padding: 20px; margin-bottom: 24px; }
+  .summary-row { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; font-size: 14px; }
+  .summary-row .k { color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; min-width: 110px; }
+  .summary-row .v { text-align: right; font-weight: 500; }
+
+  .success {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .success .check {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--ink); color: var(--gold);
+    margin: 0 auto 24px;
+    display: grid; place-items: center;
+    font-family: 'Newsreader', serif; font-size: 40px; font-style: italic;
+  }
+  .success h2 { font-family: 'Newsreader', serif; font-weight: 400; font-size: 36px; margin-bottom: 12px; }
+  .success p { color: var(--muted); max-width: 36ch; margin: 0 auto 24px; }
+
+  /* Right side */
+  .info-block { padding: 24px 0; border-top: 1px solid var(--line); }
+  .info-block:first-of-type { border-top: none; padding-top: 0; }
+  .info-block h3 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; font-weight: 500; }
+  .info-block .big {
+    font-family: 'Newsreader', serif; font-size: 28px; font-weight: 400; line-height: 1.1; letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .info-block .big em { font-style: italic; color: var(--gold); }
+  .info-block p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
+  .info-block a.tel { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+
+  .map-card {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    margin-top: 24px;
+  }
+  .map-svg { width: 100%; height: 220px; display: block; }
+  .map-card .meta { padding: 24px; }
+  .map-card .meta h4 { font-family: 'Newsreader', serif; font-weight: 400; font-size: 22px; margin-bottom: 6px; }
+  .map-card .meta p { color: #B8C4B6; font-size: 13.5px; }
+
+  /* Hours */
+  .hours { width: 100%; }
+  .hours tr td { padding: 6px 0; font-size: 14px; }
+  .hours tr td:last-child { text-align: right; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .hours tr.today { color: var(--ink); }
+  .hours tr.today td:first-child::before {
+    content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); margin-right: 8px; vertical-align: 2px;
+  }
+</style>
+</head>
+<body>
+<script src="assets/site.js"></script>
+<script>WZ_mount({ active: 'kontakt', depth: 0 });</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs">
+      <a href="index.html">Start</a>
+      <span class="sep">/</span>
+      <span>Kontakt</span>
+    </div>
+    <h1>Sagen Sie uns,<br/><em>was los ist.</em></h1>
+    <p class="lead" style="margin-top:32px;max-width:48ch">
+      Beschreiben Sie Ihren Fall in vier Schritten — wir melden uns innerhalb weniger Stunden mit einer Einschätzung. Bei akuten Fällen rufen Sie bitte direkt an.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="kontakt-grid">
+
+      <!-- FORM -->
+      <div class="form-card reveal">
+        <div class="steps" id="stepsBar">
+          <div class="step active" data-step="1">01 · Anliegen</div>
+          <div class="step" data-step="2">02 · Schädling</div>
+          <div class="step" data-step="3">03 · Details</div>
+          <div class="step" data-step="4">04 · Kontakt</div>
+        </div>
+
+        <form id="kontaktForm" novalidate>
+
+          <!-- STEP 1 -->
+          <div class="form-step active" data-step="1">
+            <h2>Worum geht <em>es</em>?</h2>
+            <p class="sub">In welchem Kontext brauchen Sie uns?</p>
+            <div class="chips" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+              <input type="radio" name="kontext" id="k1" value="Privat" required />
+              <label for="k1">🏠 Privat — Haus oder Wohnung</label>
+              <input type="radio" name="kontext" id="k2" value="Gewerblich" />
+              <label for="k2">🏢 Gewerblich — Betrieb / Industrie</label>
+              <input type="radio" name="kontext" id="k3" value="Akut / Notfall" />
+              <label for="k3">⚠️ Akut — schnelle Hilfe nötig</label>
+              <input type="radio" name="kontext" id="k4" value="Beratung" />
+              <label for="k4">💬 Beratung — kein akuter Fall</label>
+            </div>
+            <div class="err" id="err-kontext" style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#B33A1F;min-height:1em"></div>
+
+            <div class="form-actions">
+              <span></span>
+              <button type="button" class="btn btn--primary" data-next="2">Weiter →</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="form-step" data-step="2">
+            <h2>Welcher <em>Schädling</em>?</h2>
+            <p class="sub">Wählen Sie das, was am ehesten zutrifft. Sie können später Details ergänzen.</p>
+            <div class="pest-pick" id="pestPick"></div>
+            <div class="err" id="err-pest" style="margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#B33A1F;min-height:1em"></div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-back" data-prev="1">← Zurück</button>
+              <button type="button" class="btn btn--primary" data-next="3">Weiter →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="form-step" data-step="3">
+            <h2>Erzählen Sie uns <em>mehr</em>.</h2>
+            <p class="sub">Was haben Sie beobachtet? Wo? Seit wann?</p>
+
+            <div class="field">
+              <label for="ort">Ort des Befalls</label>
+              <input type="text" id="ort" name="ort" placeholder="z. B. Küche, Dachstuhl, Lagerhalle …" />
+            </div>
+            <div class="field">
+              <label for="seit">Seit wann beobachten Sie das?</label>
+              <select id="seit" name="seit">
+                <option value="">Bitte wählen</option>
+                <option>Heute / Gerade eben</option>
+                <option>Seit ein paar Tagen</option>
+                <option>Seit ein paar Wochen</option>
+                <option>Seit Monaten</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="details">Beschreibung (optional)</label>
+              <textarea id="details" name="details" placeholder="z. B. „Sehe abends vermehrt Mäuse im Vorratsraum, Spuren an Verpackungen …“"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-back" data-prev="2">← Zurück</button>
+              <button type="button" class="btn btn--primary" data-next="4">Weiter →</button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="form-step" data-step="4">
+            <h2>Wie erreichen <em>wir Sie</em>?</h2>
+            <p class="sub">Wir melden uns innerhalb weniger Stunden zurück.</p>
+
+            <div class="summary" id="summary"></div>
+
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="field">
+                <label for="name">Ihr Name *</label>
+                <input type="text" id="name" name="name" required />
+                <div class="err"></div>
+              </div>
+              <div class="field">
+                <label for="tel">Telefon *</label>
+                <input type="tel" id="tel" name="tel" required placeholder="0721 / 123 4567" />
+                <div class="err"></div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">E-Mail *</label>
+              <input type="email" id="email" name="email" required placeholder="ihre@adresse.de" />
+              <div class="err"></div>
+            </div>
+            <div class="field">
+              <label for="plz">Postleitzahl</label>
+              <input type="text" id="plz" name="plz" placeholder="76131" maxlength="5" />
+            </div>
+
+            <label class="checkbox" style="margin-top:8px">
+              <input type="checkbox" id="dsgvo" name="dsgvo" required />
+              <span>Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden. (<a href="datenschutz.html" style="border-bottom:1px solid var(--ink)">Datenschutz</a>)</span>
+            </label>
+            <div class="err" id="err-dsgvo" style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#B33A1F;min-height:1em"></div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-back" data-prev="3">← Zurück</button>
+              <button type="submit" class="btn btn--primary" id="submitBtn">Anfrage senden →</button>
+            </div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="form-step" data-step="success">
+            <div class="success">
+              <div class="check">✓</div>
+              <h2>Vielen Dank.</h2>
+              <p>Ihre Anfrage ist bei uns eingegangen. Wir melden uns innerhalb weniger Stunden — werktags meist innerhalb einer Stunde.</p>
+              <a class="btn btn--primary" href="index.html">Zurück zur Startseite →</a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- ASIDE -->
+      <aside class="reveal">
+        <div class="info-block">
+          <h3>Akut?</h3>
+          <p class="big">Rufen Sie an —<br/><em>wir antworten</em>.</p>
+          <p style="margin-top:12px">
+            <a class="tel" href="tel:+4915563395364">0155 — 6339 5364</a>
+          </p>
+          <p style="margin-top:12px">Werktags & Wochenende. Notdienst rund um die Uhr.</p>
+        </div>
+
+        <div class="info-block">
+          <h3>Adresse</h3>
+          <p class="big">Karlsruhe</p>
+          <p>Rüppurrer Straße 12 · 76137 Karlsruhe</p>
+          <p>Termine vor Ort nach Vereinbarung.</p>
+        </div>
+
+        <div class="info-block">
+          <h3>Geschäftszeiten</h3>
+          <table class="hours">
+            <tbody>
+              <tr id="row-Mo"><td>Montag</td><td>07:00 – 21:00</td></tr>
+              <tr id="row-Di"><td>Dienstag</td><td>07:00 – 21:00</td></tr>
+              <tr id="row-Mi"><td>Mittwoch</td><td>07:00 – 21:00</td></tr>
+              <tr id="row-Do"><td>Donnerstag</td><td>07:00 – 21:00</td></tr>
+              <tr id="row-Fr"><td>Freitag</td><td>07:00 – 21:00</td></tr>
+              <tr id="row-Sa"><td>Samstag</td><td>09:00 – 18:00</td></tr>
+              <tr id="row-So"><td>Sonntag</td><td>Notdienst</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="map-card">
+          <svg class="map-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1F4733" stroke-width="0.6" opacity="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="220" fill="#0F2A1D"/>
+            <rect width="400" height="220" fill="url(#grid)"/>
+            <!-- Rivers / region lines -->
+            <path d="M0 110 Q 100 100 200 120 T 400 110" stroke="#3E7CB1" stroke-width="2" fill="none" opacity="0.4"/>
+            <path d="M0 160 Q 80 150 160 165 T 400 155" stroke="#3E7CB1" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <!-- City dots -->
+            <g font-family="JetBrains Mono, monospace" font-size="9" fill="#C3D9C0">
+              <circle cx="200" cy="110" r="6" fill="#E8B14B"/>
+              <circle cx="200" cy="110" r="14" fill="#E8B14B" opacity="0.2"/>
+              <circle cx="200" cy="110" r="22" fill="#E8B14B" opacity="0.1"/>
+              <text x="212" y="113" fill="#F5F1E8" font-size="11">Karlsruhe</text>
+              <circle cx="240" cy="135" r="2.5" fill="#C3D9C0"/><text x="246" y="138">Ettlingen</text>
+              <circle cx="270" cy="80" r="2.5" fill="#C3D9C0"/><text x="276" y="83">Bruchsal</text>
+              <circle cx="320" cy="100" r="2.5" fill="#C3D9C0"/><text x="326" y="103">Pforzheim</text>
+              <circle cx="310" cy="55" r="2.5" fill="#C3D9C0"/><text x="316" y="58">Heidelberg</text>
+              <circle cx="170" cy="160" r="2.5" fill="#C3D9C0"/><text x="120" y="172">Baden-Baden</text>
+              <circle cx="120" cy="130" r="2.5" fill="#C3D9C0"/><text x="60" y="133">Wörth</text>
+              <circle cx="80" cy="170" r="2.5" fill="#C3D9C0"/><text x="20" y="172">Landau</text>
+            </g>
+          </svg>
+          <div class="meta">
+            <h4>Einsatzgebiet</h4>
+            <p>~80 km Radius um Karlsruhe — Karlsruhe, Ettlingen, Bruchsal, Pforzheim, Heidelberg, Baden-Baden, Sinsheim, Bretten, Wörth, Landau, Hockenheim und alle Stadtteile.</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // ----- pest pick render
+  document.getElementById('pestPick').innerHTML = SITE.pests.map(p => `
+    <input type="radio" name="pest" id="p-${p.slug}" value="${p.name}" />
+    <label for="p-${p.slug}">
+      <div class="pest-ico">${PEST_SVG[p.icon]}</div>
+      <span>${p.name}</span>
+    </label>
+  `).join('') + `
+    <input type="radio" name="pest" id="p-other" value="Anderes / unsicher" />
+    <label for="p-other">
+      <div class="pest-ico">?</div>
+      <span>Unsicher</span>
+    </label>
+  `;
+
+  // ----- highlight today's hours
+  const days = ['So','Mo','Di','Mi','Do','Fr','Sa'];
+  const today = days[new Date().getDay()];
+  const todayRow = document.getElementById('row-' + today);
+  if (todayRow) todayRow.classList.add('today');
+
+  // ----- multi-step form
+  const form = document.getElementById('kontaktForm');
+  const steps = form.querySelectorAll('.form-step');
+  const bar = document.getElementById('stepsBar');
+
+  function show(step) {
+    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(step)));
+    bar.querySelectorAll('.step').forEach(s => {
+      s.classList.remove('active', 'done');
+      const n = Number(s.dataset.step);
+      if (n === Number(step)) s.classList.add('active');
+      else if (n < Number(step)) s.classList.add('done');
+    });
+    if (step === 4) renderSummary();
+    window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+  }
+
+  function validate(step) {
+    if (step === 1) {
+      const v = form.querySelector('input[name="kontext"]:checked');
+      document.getElementById('err-kontext').textContent = v ? '' : 'Bitte wählen Sie einen Kontext.';
+      return !!v;
+    }
+    if (step === 2) {
+      const v = form.querySelector('input[name="pest"]:checked');
+      document.getElementById('err-pest').textContent = v ? '' : 'Bitte wählen Sie einen Schädling oder „Unsicher".';
+      return !!v;
+    }
+    return true;
+  }
+
+  form.querySelectorAll('[data-next]').forEach(b => {
+    b.addEventListener('click', () => {
+      const cur = Number(b.closest('.form-step').dataset.step);
+      if (validate(cur)) show(b.dataset.next);
+    });
+  });
+  form.querySelectorAll('[data-prev]').forEach(b => {
+    b.addEventListener('click', () => show(b.dataset.prev));
+  });
+
+  function renderSummary() {
+    const data = new FormData(form);
+    const k = data.get('kontext') || '—';
+    const p = data.get('pest') || '—';
+    const ort = data.get('ort') || '—';
+    const seit = data.get('seit') || '—';
+    document.getElementById('summary').innerHTML = `
+      <div class="summary-row"><span class="k">Kontext</span><span class="v">${k}</span></div>
+      <div class="summary-row"><span class="k">Schädling</span><span class="v">${p}</span></div>
+      <div class="summary-row"><span class="k">Ort</span><span class="v">${ort}</span></div>
+      <div class="summary-row"><span class="k">Beobachtet</span><span class="v">${seit}</span></div>
+    `;
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let ok = true;
+    ['name','tel','email'].forEach(id => {
+      const el = document.getElementById(id);
+      const f = el.closest('.field');
+      const err = f.querySelector('.err');
+      if (!el.value.trim()) { f.classList.add('has-error'); err.textContent = 'Pflichtfeld'; ok = false; }
+      else if (id === 'email' && !/^[^@]+@[^@]+\.[^@]+$/.test(el.value)) { f.classList.add('has-error'); err.textContent = 'Bitte gültige E-Mail'; ok = false; }
+      else { f.classList.remove('has-error'); err.textContent = ''; }
+    });
+    const dsgvo = document.getElementById('dsgvo').checked;
+    document.getElementById('err-dsgvo').textContent = dsgvo ? '' : 'Bitte zustimmen, um die Anfrage zu senden.';
+    if (!dsgvo) ok = false;
+    if (!ok) return;
+
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = '<span class="spinner"></span> Senden …';
+    btn.disabled = true;
+    setTimeout(() => {
+      show('success');
+      WZ_toast('Anfrage gesendet — wir melden uns kurzfristig.');
+    }, 900);
+  });
+</script>
+
+</body>
+</html>

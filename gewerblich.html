@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title id="pageTitle">Leistung — WZ Schädlingsbekämpfung Karlsruhe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .svc-page .svc-hero { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
+  @media (max-width: 900px) { .svc-page .svc-hero { grid-template-columns: 1fr; gap: 40px; } }
+  .svc-page .svc-hero .ph { aspect-ratio: 5/4; }
+
+  .svc-page .bullets { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .svc-page .bullets li { padding: 32px 32px 32px 0; border-bottom: 1px solid var(--line); }
+  .svc-page .bullets li:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 40px; }
+  .svc-page .bullets li:nth-child(even) { padding-left: 40px; padding-right: 0; }
+  .svc-page .bullets h3 { font-family: 'Newsreader', serif; font-size: 28px; font-style: italic; color: var(--gold); margin-bottom: 14px; font-weight: 400; }
+  .svc-page .bullets p { color: var(--muted); margin: 0; max-width: 36ch; }
+  @media (max-width: 720px) {
+    .svc-page .bullets { grid-template-columns: 1fr; }
+    .svc-page .bullets li:nth-child(odd) { border-right: none; padding-right: 0; }
+    .svc-page .bullets li:nth-child(even) { padding-left: 0; }
+  }
+
+  .case-list { list-style: none; padding: 0; margin: 0; }
+  .case-list li {
+    display: grid; grid-template-columns: 1.4fr 1fr 0.8fr;
+    gap: 32px; padding: 28px 0; border-top: 1px solid var(--line-dark);
+    align-items: baseline;
+  }
+  .case-list li:last-child { border-bottom: 1px solid var(--line-dark); }
+  .case-list .what { font-family: 'Newsreader', serif; font-size: 26px; font-weight: 400; line-height: 1.15; color: var(--cream); }
+  .case-list .where { font-size: 14px; color: #B8C4B6; }
+  .case-list .when { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: var(--gold); text-align: right; }
+  @media (max-width: 720px) { .case-list li { grid-template-columns: 1fr; gap: 8px; } .case-list .when { text-align: left; } }
+
+  .faq details {
+    border-top: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  .faq details:last-of-type { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    list-style: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    font-family: 'Newsreader', serif; font-size: 24px; font-weight: 400; line-height: 1.2;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+"; font-family: 'Newsreader', serif; font-style: italic;
+    font-size: 28px; color: var(--gold);
+    transition: transform var(--t);
+  }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { color: var(--muted); margin: 16px 0 0; max-width: 60ch; font-size: 16px; }
+</style>
+</head>
+<body class="svc-page">
+<script src="assets/site.js"></script>
+<script src="assets/service-data.js"></script>
+<script>WZ_mount({ active: '', depth: 0 });</script>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="crumbs">
+      <a href="index.html">Start</a>
+      <span class="sep">/</span>
+      <span>Leistungen</span>
+      <span class="sep">/</span>
+      <span id="cb-name"></span>
+    </div>
+    <div class="svc-hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span><span id="ebSub"></span></div>
+        <h1 style="margin-top:18px"><span id="hTop"></span><br/><em id="hEm"></em></h1>
+        <p class="lead" style="margin-top:32px" id="hIntro"></p>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn--primary" href="kontakt.html">Anfrage stellen <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="tel:+4915563395364">0155 — 6339 5364</a>
+        </div>
+      </div>
+      <aside>
+        <div class="ph"><span class="label" id="phLabel"></span></div>
+      </aside>
+    </div>
+
+    <div class="meta">
+      <div><div class="k">Reaktionszeit</div><div class="v">≤ 4 Std.</div></div>
+      <div><div class="k">Garantie</div><div class="v">Schriftlich</div></div>
+      <div><div class="k">Standards</div><div class="v">HACCP · IFS · IPM</div></div>
+      <div><div class="k">Region</div><div class="v">~80 km um Karlsruhe</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Was Sie bekommen -->
+<section class="section">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns: 1fr 1.4fr; gap: 80px;">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>Was Sie bekommen</div>
+        <h2 class="h-1" style="margin-top:14px;max-width:14ch">Vier Versprechen, <em>schriftlich</em>.</h2>
+        <p class="muted" style="max-width:38ch;margin-top:24px">
+          Was wir zusagen, halten wir nicht nur mündlich. Jeder Punkt unten ist Teil jedes Auftrags — und steht so in Ihrem Vertrag.
+        </p>
+      </div>
+      <ul class="bullets reveal" id="bulletsList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Ablauf -->
+<section class="section section--tight" style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns: 1fr 1.4fr; gap: 80px;">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>Ablauf</div>
+        <h2 class="h-1" style="margin-top:14px;max-width:12ch">Wie wir mit Ihnen <em>arbeiten</em>.</h2>
+      </div>
+      <ol class="numlist reveal" id="processList"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- Cases -->
+<section class="section section--ink">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--sage)"><span class="dot"></span>Aus der Praxis</div>
+      <h2 class="h-1" style="margin-top:14px;color:var(--cream);max-width:14ch">Drei <em>Beispiele</em>, kurz beschrieben.</h2>
+    </div>
+    <ul class="case-list reveal" id="caseList" style="margin-top:56px"></ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns: 1fr 1.4fr; gap: 80px;">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>FAQ</div>
+        <h2 class="h-1" style="margin-top:14px;max-width:12ch">Häufige <em>Fragen</em>.</h2>
+        <p class="muted" style="max-width:34ch;margin-top:24px">
+          Etwas nicht beantwortet? Schreiben Sie uns — meist antworten wir am gleichen Tag.
+        </p>
+        <a class="btn btn--ghost" href="kontakt.html" style="margin-top:24px">Frage stellen →</a>
+      </div>
+      <div class="faq reveal" id="faqList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--ink section--tight">
+  <div class="wrap" style="text-align:center;padding:40px 0">
+    <h2 class="h-1" style="color:var(--cream);max-width:18ch;margin:0 auto 24px">Bereit für ein <em>kostenfreies</em> Erstgespräch?</h2>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--gold" href="kontakt.html">Anfrage in 60 Sek. →</a>
+      <a class="btn btn--ghost" href="tel:+4915563395364">0155 — 6339 5364</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slug = location.pathname.split('/').pop().replace('.html','') || 'privat';
+  const data = window.SERVICE_DATA[slug] || window.SERVICE_DATA.privat;
+
+  document.getElementById('pageTitle').textContent = `${data.name} — WZ Schädlingsbekämpfung Karlsruhe`;
+  document.getElementById('cb-name').textContent = data.name;
+  document.getElementById('ebSub').textContent = data.sub;
+  document.getElementById('hTop').textContent = data.headlineTop;
+  document.getElementById('hEm').textContent = data.headlineEm;
+  document.getElementById('hIntro').textContent = data.intro;
+  document.getElementById('phLabel').textContent = `Foto · ${data.name}`;
+
+  document.getElementById('bulletsList').innerHTML =
+    data.bullets.map(([k,v]) => `<li><h3>${k}</h3><p>${v}</p></li>`).join('');
+
+  document.getElementById('processList').innerHTML =
+    data.process.map(([k,v]) => `<li><div><h3 class="h-3 serif">${k}</h3><p class="muted">${v}</p></div></li>`).join('');
+
+  document.getElementById('caseList').innerHTML =
+    data.cases.map(([w,wh,t]) => `<li><div class="what">${w}</div><div class="where">${wh}</div><div class="when">${t}</div></li>`).join('');
+
+  document.getElementById('faqList').innerHTML =
+    data.faq.map(([q,a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+</script>
+</body>
+</html>
